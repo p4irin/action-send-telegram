@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send a message to a Telegram user or group
+        id: sendMessage
         uses: p4irin/action-send-telegram@v1
         with:
           telegram-bot-token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -21,4 +22,4 @@ jobs:
       - name: 'Display p4irin/action-send-telegram response to job summary'
         run: |
           echo "# Telegram response" >> $GITHUB_STEP_SUMMARY
-          echo "Response = ${tg_response}" >> $GITHUB_STEP_SUMMARY
+          echo "Response = ${{ steps.sendMessage.outputs.tg_response }}" >> $GITHUB_STEP_SUMMARY
