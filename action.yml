@@ -1,0 +1,25 @@
+name: 'Telegram notifier'
+description: 'Send a Telegram message to a user or group'
+
+inputs:
+  telegram-bot-token:
+    description: 'Your Telegram bot token'
+    required: true
+  telegram-chat-id:
+    description: 'The chat-id of the Telegram user/group'
+    required: true
+  message:
+    description: 'A text message'
+    required: true
+
+outputs:
+  telegram_response:
+    description: 'JSON response from Telegram'
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.telegram-bot-token }}
+    - ${{ inputs.telegram-chat-id }}
+    - ${{ inputs.message }}
