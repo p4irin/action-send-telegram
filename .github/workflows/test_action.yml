@@ -1,0 +1,24 @@
+name: Test action-send-telegram
+
+on:
+  workflow_dispatch:
+    inputs:
+      mesagge:
+        description: 'Message to send to a Telegram user or group'
+        required: true
+        type: string
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send a message to a Telegram user or group
+        uses: p4irin/action-send-telegram@v1
+        with:
+          telegram-bot-token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          telegram-chat-id: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: ${{ inputs.message }}
+      - name: 'Display p4irin/action-send-telegram response to job summary'
+        run: |
+          echo "# Telegram response" >> $GITHUB_STEP_SUMMARY
+          echo "Response = ${tg_response" >> $GITHUB_STEP_SUMMARY
