@@ -3,7 +3,7 @@ name: Test action-send-telegram
 on:
   workflow_dispatch:
     inputs:
-      mesagge:
+      message:
         description: 'Message to send to a Telegram user or group'
         required: true
         type: string
