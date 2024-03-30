@@ -1,3 +1,5 @@
+[![Test action-send-telegram](https://github.com/p4irin/action-send-telegram/actions/workflows/test_action.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/p4irin/action-send-telegram/actions/workflows/test_action.yml)
+
 # Send Telegram action
 
 Send a message to a Telegram user or group from within a GitHub Actions workflow
